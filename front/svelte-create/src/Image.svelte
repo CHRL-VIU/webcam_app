@@ -2,7 +2,7 @@
 import {images} from './data-images.js'
 import Image from "svelte-image"
 export let image = {}
-const imgPath = 'http://localhost/back/'
+const imgPath = 'http://localhost/'
 </script>
 
 <div class = "image"> 

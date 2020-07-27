@@ -1447,7 +1447,7 @@ var app = (function () {
     			div = element("div");
     			create_component(image_1.$$.fragment);
     			attr_dev(div, "class", "image");
-    			add_location(div, file$2, 7, 0, 156);
+    			add_location(div, file$2, 7, 0, 151);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1488,7 +1488,7 @@ var app = (function () {
     	return block;
     }
 
-    const imgPath = "http://localhost/back/";
+    const imgPath = "http://localhost/";
 
     function instance$2($$self, $$props, $$invalidate) {
     	let { image = {} } = $$props;
@@ -1621,7 +1621,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "id", "Images");
-    			add_location(div, file$3, 14, 0, 307);
+    			add_location(div, file$3, 14, 0, 302);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1705,7 +1705,7 @@ var app = (function () {
     	component_subscribe($$self, images, $$value => $$invalidate(0, $images = $$value));
 
     	onMount(async () => {
-    		const url = "http://localhost/back/get-images.php";
+    		const url = "http://localhost/get-images.php";
     		let res = await fetch(url);
     		res = await res.json();
 
