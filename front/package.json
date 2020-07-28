@@ -17,6 +17,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "livereload": "^0.8.0",
+    "popmotion": "^8.7.3",
     "sirv-cli": "^1.0.0"
   }
 }
