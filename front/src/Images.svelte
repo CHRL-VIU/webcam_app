@@ -70,22 +70,34 @@ async function perse(){
 
 <div class = "body">
 <div class = "slideshow">
-<h5 style="word-wrap: break-word; margin-top: 0.2em; margin-bottom: 0.2em">Filename: {$images[$slide_id]}</h5>
+<div id = "filename">
+  <h5 style="word-wrap: break-word; margin-top: 0.2em; margin-bottom: 0.2em">Filename: {$images[$slide_id]}</h5>
+</div>
  <Image image={$images[$slide_id]}/>
 </div>
 <div class ="rangecontainer">
 <input bind:value={$slide_id}  type="range" min="0" max={$numImages} step="1" class="slider">
+<small> Note: You can use the blue circle to quickly scrub through the images or use the keyboard arrows to go one at a time. <small/>
 </div>
 </div>
 
 <style>
+  
 
  .header-right {
    float: right;
  } 
 
-
-
+ @media screen and (max-width: 600px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
 
 .rangecontainer {
   display: inline;
