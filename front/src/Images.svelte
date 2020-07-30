@@ -45,42 +45,58 @@ async function perse(){
     console.log(url)
 }
 </script>
-<button on:click={plum}>
-Plummer
-</button>
-<button on:click={klina}>
-Klinaklini
-</button>
-<button on:click={homath}>
-Homathko
-</button>
-<button on:click={perse}>
-Perseverance
-</button>
+
+<div class="header">
+    <a href="http://www.viu-hydromet-wx.ca/" class="logo">
+        <img src = "images/chrl-logo-text.png" alt = "CHRL logo" style= "width:184px;height:48px;">
+    </a>
+    <div class="header-right">
+        <button on:click={plum}>
+            Plummer
+            </button>
+            <button on:click={klina}>
+            Klinaklini
+            </button>
+            <button on:click={homath}>
+            Homathko
+            </button>
+            <button on:click={perse}>
+            Perseverance
+            </button>
+    </div>
+  </div>
+
+
+
 <div class = "body">
 <div class = "slideshow">
-
+<h5 style="word-wrap: break-word; margin-top: 0.2em; margin-bottom: 0.2em">Filename: {$images[$slide_id]}</h5>
  <Image image={$images[$slide_id]}/>
 </div>
 <div class ="rangecontainer">
-<h3>Image Name: {$images[$slide_id]}</h3>
 <input bind:value={$slide_id}  type="range" min="0" max={$numImages} step="1" class="slider">
 </div>
 </div>
 
 <style>
+
+ .header-right {
+   float: right;
+ } 
+
+
+
+
 .rangecontainer {
   display: inline;
   max-width: 100%; /* Width of the outside container */
 }
 
 .slider{
-    -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
+  max-width: 743px;
   width: 100%; /* Full-width */
   height: 25px; /* Specified height */
   background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
