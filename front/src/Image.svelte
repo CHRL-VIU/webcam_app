@@ -10,9 +10,8 @@ const imgPath = 'http://www.viu-hydromet-wx.ca/webcam_images/'
 
 <style>
     img {
-
                 max-width: 100%;
-                max-height: 100%;
+                max-height: 550px;
               
     }
 </style>

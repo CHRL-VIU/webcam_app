@@ -18,7 +18,6 @@ async function plum(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
-    console.log(url)
 }
 async function klina(){
     const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=klinaklini'
@@ -26,7 +25,6 @@ async function klina(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
-    console.log(url)
 }
 async function homath(){
     const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=homathko'
@@ -34,7 +32,6 @@ async function homath(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
-    console.log(url)
 }
 async function perse(){
     const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=perseverance'
@@ -42,7 +39,6 @@ async function perse(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
-    console.log(url)
 }
 </script>
 
@@ -68,22 +64,29 @@ async function perse(){
 
 
 
-<div class = "body">
-<div class = "slideshow">
-<div id = "filename">
-  <h5 style="word-wrap: break-word; margin-top: 0.2em; margin-bottom: 0.2em">Filename: {$images[$slide_id]}</h5>
+<div class = "body" style = "text-align: center">
+<figure class = "slideshow">
+<div class = "filename">
+  <h5>Filename: {$images[$slide_id]}</h5>
 </div>
  <Image image={$images[$slide_id]}/>
-</div>
-<div class ="rangecontainer">
-<input bind:value={$slide_id}  type="range" min="0" max={$numImages} step="1" class="slider">
-<small> Note: You can use the blue circle to quickly scrub through the images or use the keyboard arrows to go one at a time. <small/>
-</div>
+ <div class ="rangecontainer">
+  <input bind:value={$slide_id}  type="range" min="0" max={$numImages} step="1" class="slider">
+  </div>
+ <small class = "figcaption"> Note: You can use the blue circle to quickly scrub through the images or use keyboard arrows to go one at a time. <small/>
+ </figure>
 </div>
 
 <style>
-  
 
+  .figcaption {
+    font-size: .7em;
+    display: block;
+  }
+  .filename {
+    display: block;
+    word-wrap: break-word;
+  }
  .header-right {
    float: right;
  } 
@@ -100,7 +103,7 @@ async function perse(){
 }
 
 .rangecontainer {
-  display: inline;
+  display: block;
   max-width: 100%; /* Width of the outside container */
 }
 
