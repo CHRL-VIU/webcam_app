@@ -11,7 +11,7 @@ function prevImage() {
   }
 }
 function nextImage() {
-  if($slide_id + 1 < $numImages) {
+  if($slide_id < $numImages) {
     $slide_id++;
   }
 }
