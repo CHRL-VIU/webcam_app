@@ -1,15 +1,16 @@
 <script>
-import {images, numImages, slide_id, userStn} from './data-images.js' 
+import {images, numImages, slide_id} from './data-images.js' 
 import {onMount, tick} from 'svelte'
 import Image from './Image.svelte'
-import { writable } from 'svelte/store'
 
+// initiate reactive functions for each station
 onMount( async() => {
     const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=plummer'
     let res = await fetch(url)
     res = await res.json()
     $images = res
     $numImages = res.length-1
+    $slide_id = $numImages
 })
 
 async function plum(){  
@@ -18,6 +19,7 @@ async function plum(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
+    $slide_id = $numImages
 }
 async function klina(){
     const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=klinaklini'
@@ -25,6 +27,7 @@ async function klina(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
+    $slide_id = $numImages
 }
 async function homath(){
     const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=homathko'
@@ -32,6 +35,7 @@ async function homath(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
+    $slide_id = $numImages
 }
 async function perse(){
     const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=perseverance'
@@ -39,9 +43,11 @@ async function perse(){
     res = await res.json()
     $images = res
     $numImages = res.length-1
+    $slide_id = $numImages
 }
 </script>
 
+<!--Define Header-->
 <div class="header">
     <a href="http://www.viu-hydromet-wx.ca/" class="logo">
         <img src = "images/chrl-logo-text.png" alt = "CHRL logo" style= "width:184px;height:48px;">
@@ -63,7 +69,7 @@ async function perse(){
   </div>
 
 
-
+<!--Create range slider container with images from user selected station-->
 <div class = "body" style = "text-align: center">
 <figure class = "slideshow">
 <div class = "filename">
