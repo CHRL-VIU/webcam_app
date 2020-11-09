@@ -1,5 +1,4 @@
 <script>
-import {images} from './data-images.js'
 export let image = {}
 const imgPath = 'http://www.viu-hydromet-wx.ca/webcam_images/'
 
@@ -11,7 +10,6 @@ const imgPath = 'http://www.viu-hydromet-wx.ca/webcam_images/'
 <style>
     img {
                 max-width: 100%;
-                max-height: 550px;
-              
+                max-height: inherit;
     }
 </style>

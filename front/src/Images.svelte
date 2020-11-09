@@ -2,6 +2,19 @@
 import {images, numImages, slide_id} from './data-images.js' 
 import {onMount, tick} from 'svelte'
 import Image from './Image.svelte'
+let flag = true;
+
+// functions for next and previous buttons
+function prevImage() {
+  if($slide_id > 0) {
+    $slide_id--;
+  }
+}
+function nextImage() {
+  if($slide_id + 1 < $numImages) {
+    $slide_id++;
+  }
+}
 
 // initiate reactive functions for each station
 onMount( async() => {
@@ -45,6 +58,15 @@ async function perse(){
     $numImages = res.length-1
     $slide_id = $numImages
 }
+
+async function cruick(){
+    const url = 'http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=cruickshank'
+    let res = await fetch(url)
+    res = await res.json()
+    $images = res
+    $numImages = res.length-1
+    $slide_id = $numImages
+}
 </script>
 
 <!--Define Header-->
@@ -53,17 +75,24 @@ async function perse(){
         <img src = "images/chrl-logo-text.png" alt = "CHRL logo" style= "width:184px;height:48px;">
     </a>
     <div class="header-right">
-        <button on:click={plum}>
+            <button on:click={plum}>
             Plummer
             </button>
+
             <button on:click={klina}>
             Klinaklini
             </button>
+
             <button on:click={homath}>
             Homathko
             </button>
+
             <button on:click={perse}>
             Perseverance
+            </button>
+
+             <button on:click={cruick}>
+            Cruickshank
             </button>
     </div>
   </div>
@@ -77,18 +106,22 @@ async function perse(){
 </div>
  <Image image={$images[$slide_id]}/>
  <div class ="rangecontainer">
-  <input bind:value={$slide_id}  type="range" min="0" max={$numImages} step="1" class="slider">
-  </div>
- <small class = "figcaption"> Note: You can use the blue circle to quickly scrub through the images or use keyboard arrows to go one at a time. <small/>
+  <input bind:value={$slide_id}  type="range" min="0" max={$numImages} step="1" class="slider"> <br>
+  <button on:click={prevImage}> Previous </button>
+  <button on:click={nextImage}> Next </button>  
+  </div>        
  </figure>
 </div>
 
 <style>
 
-  .figcaption {
-    font-size: .7em;
-    display: block;
-  }
+    .slideshow {
+                margin: auto;
+                max-width: 100%;
+                max-height: 75vh;              
+    }
+
+
   .filename {
     display: block;
     word-wrap: break-word;
