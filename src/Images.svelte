@@ -16,7 +16,7 @@
   // let reactDateTime = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
 
   function onReady() {
-    mapComponent.setCenter([-126,53], 5);
+    mapComponent.setCenter([-126,53.5], 4);
   }
 
   // functions for next and previous buttons
