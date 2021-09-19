@@ -3,7 +3,8 @@
   import { onMount } from "svelte";
   import Image from "./Image.svelte";
   import { Map, Marker } from "@beyonk/svelte-mapbox";
-  import { accessToken, listItems } from "./consts";
+  import {accessToken} from "./consts";
+  import {listItems} from "./wx-coords";
 
   let mapComponent;
   let currentCam = "Plummer Hut";
@@ -15,7 +16,7 @@
   // let reactDateTime = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
 
   function onReady() {
-    mapComponent.setCenter([-125.2,50.4], 7);
+    mapComponent.setCenter([-126,53], 5);
   }
 
   // functions for next and previous buttons
@@ -55,7 +56,7 @@
     $images = res;
     $numImages = res.length - 1;
     $slide_id = $numImages;
-    mapComponent.setCenter(listItems[0].coords, 10);
+    mapComponent.setCenter(listItems[0].coords, 9);
     currentCam = "Plummer Hut";
     curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
     curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
@@ -71,7 +72,7 @@
     $images = res;
     $numImages = res.length - 1;
     $slide_id = $numImages;
-    mapComponent.setCenter(listItems[1].coords, 10);
+    mapComponent.setCenter(listItems[1].coords, 9);
     currentCam = "Klinaklini";
     curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
     curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
@@ -87,7 +88,7 @@
     $images = res;
     $numImages = res.length - 1;
     $slide_id = $numImages;
-    mapComponent.setCenter(listItems[2].coords, 10);
+    mapComponent.setCenter(listItems[2].coords, 9);
     currentCam = "Homathko";
     curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
     curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
@@ -103,7 +104,7 @@
     $images = res;
     $numImages = res.length - 1;
     $slide_id = $numImages;
-    mapComponent.setCenter(listItems[3].coords, 10);
+    mapComponent.setCenter(listItems[3].coords, 9);
     currentCam = "Perseverance";
     curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
     curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
@@ -120,13 +121,30 @@
     $images = res;
     $numImages = res.length - 1;
     $slide_id = $numImages;
-    mapComponent.setCenter(listItems[4].coords, 10);
+    mapComponent.setCenter(listItems[4].coords, 9);
     currentCam = "Upper Cruickshank";
     curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
     curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
     curDateTime = [curDate, curTime, "UTC"].join(" ");
     curElevation = [listItems[4].elevation, " m"].join("");
     curCoords = listItems[4].coords
+  }
+
+  async function skeena() {
+    const url =
+      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=skeena";
+    let res = await fetch(url);
+    res = await res.json();
+    $images = res;
+    $numImages = res.length - 1;
+    $slide_id = $numImages;
+    mapComponent.setCenter(listItems[5].coords, 5);
+    currentCam = "Upper Skeena";
+    curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
+    curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
+    curDateTime = [curDate, curTime, "UTC"].join(" ");
+    curElevation = [listItems[5].elevation, " m"].join("");
+    curCoords = listItems[5].coords
   }
 </script>
 
@@ -280,6 +298,9 @@
   <button on:click={perse}> Perseverance </button>
 
   <button on:click={cruick}> Cruickshank </button>
+
+  <button on:click={skeena}> Skeena </button>
+
 </div>
 
 <!--Create range slider container with images from user selected station-->
@@ -338,6 +359,10 @@
           lat={listItems[4].lat}
           lng={listItems[4].lon}
           label={listItems[4].name} />
+        <Marker
+        lat={listItems[5].lat}
+        lng={listItems[5].lon}
+        label={listItems[5].name} />
       </Map>
   </div>
 </div>

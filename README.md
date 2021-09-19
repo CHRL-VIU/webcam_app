@@ -1,10 +1,6 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# webcam app
 
----
-
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+This is a project template for .http://www.viu-hydromet-wx.ca/webcam-viewer. It lives at https://github.com/acebulsk/webcam_app.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
@@ -24,6 +20,21 @@ Install the dependencies...
 cd svelte-app
 npm install
 ```
+
+## Make some changes
+
+Steps to add a station:
+1. edit /public/scripts/get-webcam-images.php to include new station
+2. Add new station place holders in images.svelte
+3. update wx-coords.js
+4. make sure you have access token from mapbox
+    a. file template here is:
+    ```
+    export const accessToken =
+    'insert access token here';
+    ```
+
+## Test app locally
 
 ...then start [Rollup](https://rollupjs.org):
 
@@ -45,6 +56,8 @@ npm run build
 ```
 
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+
+Then you are going to move the newly created folder to the public_html folder on cpanel. 
 
 
 ## Single-page app mode
