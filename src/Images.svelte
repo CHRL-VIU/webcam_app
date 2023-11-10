@@ -34,7 +34,7 @@
   // initiate reactive functions for each station
   onMount(async () => {
     const url =
-      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=plummer";
+      "https://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=plummer";
     let res = await fetch(url);
     res = await res.json();
     $images = res;
@@ -50,7 +50,7 @@
 
   async function plum() {
     const url =
-      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=plummer";
+      "https://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=plummer";
     let res = await fetch(url);
     res = await res.json();
     $images = res;
@@ -66,7 +66,7 @@
   }
   async function klina() {
     const url =
-      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=klinaklini";
+      "https://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=klinaklini";
     let res = await fetch(url);
     res = await res.json();
     $images = res;
@@ -82,7 +82,7 @@
   }
   async function homath() {
     const url =
-      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=homathko";
+      "https://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=homathko";
     let res = await fetch(url);
     res = await res.json();
     $images = res;
@@ -98,7 +98,7 @@
   }
   async function perse() {
     const url =
-      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=perseverance";
+      "https://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=perseverance";
     let res = await fetch(url);
     res = await res.json();
     $images = res;
@@ -115,7 +115,7 @@
 
   async function cruick() {
     const url =
-      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=cruickshank";
+      "https://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=cruickshank";
     let res = await fetch(url);
     res = await res.json();
     $images = res;
@@ -132,7 +132,7 @@
 
   async function skeena() {
     const url =
-      "http://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=skeena";
+      "https://www.viu-hydromet-wx.ca/webcam_images/get-images-variable.php?stnName=skeena";
     let res = await fetch(url);
     res = await res.json();
     $images = res;
@@ -280,7 +280,7 @@
 
 <!--Define Header-->
 <div class="header">
-  <a href="http://www.viu-hydromet-wx.ca/" class="logo">
+  <a href="https://www.viu-hydromet-wx.ca/" class="logo">
     <img
       src="images/chrl-logo-text.png"
       alt="CHRL logo"

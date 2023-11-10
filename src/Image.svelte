@@ -1,6 +1,6 @@
 <script>
 export let image = {}
-const imgPath = 'http://www.viu-hydromet-wx.ca/webcam_images/'
+const imgPath = 'https://www.viu-hydromet-wx.ca/webcam_images/'
 
 </script>
 
