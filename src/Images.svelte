@@ -293,7 +293,7 @@
 
   <button on:click={klina}> Klinaklini </button>
 
-  <button on:click={homath}> Homathko </button>
+  <button on:click={homath}> Homathko (Down) </button>
 
   <button on:click={perse}> Perseverance </button>
 
