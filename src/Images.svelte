@@ -89,7 +89,7 @@
     $numImages = res.length - 1;
     $slide_id = $numImages;
     mapComponent.setCenter(listItems[2].coords, 9);
-    currentCam = "Homathko";
+    currentCam = "Homathko (Down)";
     curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
     curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
     curDateTime = [curDate, curTime, "UTC"].join(" ");
@@ -293,7 +293,7 @@
 
   <button on:click={klina}> Klinaklini </button>
 
-  <button on:click={homath}> Homathko (Down) </button>
+  <button on:click={homath}> Homathko </button>
 
   <button on:click={perse}> Perseverance </button>
 
