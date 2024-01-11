@@ -315,7 +315,6 @@
             Coordinates: {curCoords}<br />
             Elevation: {curElevation}<br />
             Filename: {$images[$slide_id]}
-	    Status: {"Webcam down"}
           </p>
           <Image image={$images[$slide_id]} />
           <div class="rangecontainer">
