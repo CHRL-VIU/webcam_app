@@ -89,7 +89,7 @@
     $numImages = res.length - 1;
     $slide_id = $numImages;
     mapComponent.setCenter(listItems[2].coords, 9);
-    currentCam = "Homathko (Down)";
+    currentCam = "Homathko";
     curDate = [$images[$slide_id].slice(-18, -14), $images[$slide_id].slice(-14, -12), $images[$slide_id].slice(-12, -10)].join("-");
     curTime = [$images[$slide_id].slice(-10, -8), $images[$slide_id].slice(-8, -6), $images[$slide_id].slice(-6, -4)].join(":");
     curDateTime = [curDate, curTime, "UTC"].join(" ");
@@ -315,6 +315,7 @@
             Coordinates: {curCoords}<br />
             Elevation: {curElevation}<br />
             Filename: {$images[$slide_id]}
+	    Status: {"Webcam down"}
           </p>
           <Image image={$images[$slide_id]} />
           <div class="rangecontainer">
